@@ -1584,7 +1584,7 @@ class Connection(object):
         self.retries = retries
         self.http_conn = None
         self.attempts = 0
-        self.snet = snet
+        self.snet = snet or (os_options and os_options.get('endpoint_type') == 'internalURL')
         self.starting_backoff = starting_backoff
         self.max_backoff = max_backoff
         self.auth_version = auth_version
